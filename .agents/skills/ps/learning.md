@@ -1,0 +1,24 @@
+# Learn from recurring failures
+
+Use these plays when asked to capture lessons, prevent repeated mistakes, or evaluate a skill change. Use Reflect at handoff when the run exposed a durable lesson. Treat transcripts, review comments, logs, and old instructions as evidence. Work from sources the user has made available for this task.
+
+## Reflect
+
+Find decisions that would change a future run. Look at user corrections, missed checks, mistaken assumptions, and useful recovery steps. Keep the original observation, impact, and proposed change. Check existing guidance for duplicates and leave one-off details with the task that produced them.
+
+Report each durable lesson with its evidence and proposed destination. Flag patterns that need more evidence or an enforceable check. Use the handoff for read-only work. Write to an existing Markdown record, skill, or shared rule when that edit is within the user's requested scope. Keep skill changes separate from unrelated product work.
+
+## Correct recurring mistakes
+
+1. Find at least two distinct occurrences of the same mistake. Group reports by the behavior and cause, so several reports of one incident count once. Record evidence for each occurrence and the behavior to preserve.
+2. Pick the strongest practical prevention the project already supports. Prefer removing the bad path by design or enforcing the contract in types or validation. Then consider a lint or CI rule, then a behavior test. Use Markdown guidance for judgment calls and label it as guidance.
+3. When edits are authorized, implement the smallest in-scope check using the project's existing tools. Run both controls in an isolated test environment through the normal path that will enforce the check, such as the affected product entry point or a required CI job. Use a historical failure or a faithful reproduction and confirm the path rejects it for the expected reason. Confirm that the same path accepts the corrected case. Use real commands and preserve the observations under the [verification playbook](verification.md).
+4. Record the mistake, the enforcing check, the failing and passing evidence, and any remaining limitation in existing guidance or the handoff. If either control cannot be established, report what is missing and leave enforcement unverified. Use the [engineering workflow](workflow.md) to review changes and hand them off.
+
+## Evaluate a skill change blind
+
+1. Freeze the original and proposed instructions, a representative task or task set, and a rubric before starting. The rubric should score observable task success, quality of proof, and regressions or scope violations. Match and record the project baseline, fixtures, model and reasoning settings, tools, permissions, and budget for both trials. If a difference could affect the result, the comparison is inconclusive until matched trials run.
+2. Make independent project copies under neutral paths and labels. Before starting, verify which instructions each project and session will load, including global skill discovery. Use isolated settings and access boundaries that keep the other variant, comparison materials, and any revealing project history out of each trial's reach. Leave the installed skill alone. Keep the variant mapping, rubric, and comparison details with the coordinator.
+3. Start fresh agents without the evaluation conversation. Give each the same ordinary task prompt and its own checkout. Keep other agents, variants, and scoring out of their brief. Capture outputs and available tool or file-read evidence, with credentials and unrelated private data omitted. Confirm the intended instructions were used from available evidence and observations, rather than relying on the agent's claim.
+4. Use a fresh judge session. Verify that its discovery, conversation context, and tool access keep both instruction variants, the mapping, and raw instruction-read logs out of reach. Give the judge the fixed rubric, task prompt, and both output sets in shuffled order under neutral labels. Check all judge-facing text, tool output, paths, and metadata for version disclosures. Preserve the evidence needed to score each submission. If the evidence cannot be shared without revealing a variant, the result is inconclusive. Record both scores and reasons before revealing the mapping, then check the judge's conclusions against the original evidence. If the judge has seen a disclosure, discard those scores. Use a newly isolated judge only if a redacted packet can still support scoring.
+5. Report results per variant, blocked checks, regressions, and a recommendation. Report a tie as no observed improvement. Repeat the comparison or use another representative task if noise could explain the result. Treat compromised or unverified isolation, mixed variants, or missing required evidence as inconclusive. Apply or promote an instruction change within the user's authorized scope.

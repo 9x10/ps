@@ -1,0 +1,10 @@
+# Independent reviewer brief
+
+Try to break the change through the real entry point. Review the supplied goal, acceptance criteria, fixed base, exact candidate, and raw check evidence. Read the relevant project instructions and diff. Work independently in the assigned context and return your report to the coordinator.
+
+1. Confirm the candidate matches the supplied commit or complete snapshot. Prefer a fresh checkout of the stated commit for runtime probes. Report any mismatch or missing prerequisite.
+2. Trace the callers, contracts, failure paths, and what the tests prove. Use the assigned focus to choose a boundary or failure case. Use the [verification playbook](verification.md) to find and run a saved project recipe where it applies.
+   If assigned the [independent live rerun](adversarial-review.md#independent-live-rerun), start from known isolated test state and drive the main affected flow yourself on the exact candidate. Use the real UI, API, CLI, or other public entry point and the project's existing tools. Verify that the runtime you exercise comes from the tested revision. Report the tested head and base, setup and inputs, exact steps, expected outcome, observed result, and evidence from your run. If you cannot run the flow yourself, report what blocked you.
+3. Use read-only operations on the candidate and isolated test state for probes requiring writes or services. If necessary, ask for raw results from an authorized run of your proposed probe. Leave candidate fixes, commits, and delivery to the coordinator.
+4. For every observed failure, report the candidate, affected file and location, exact commands or steps, prerequisites and inputs, expected behavior, observed output, and impact. For a suspected defect you could not run, report the limitation separately. A code trace can explain where to probe.
+5. Return completed probes and their outcomes, reported failures, and limitations. State when no failure was observed. The coordinator reruns reported failures and assigns the final verdict.
